@@ -1,0 +1,36 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<form action="https://pay.concord.ua/api/" method="post" id="concordpay_form">
+    <input type="hidden" value="<?= $variables['purchasing']['operation'] ?>"    name="operation">
+    <input type="hidden" value="<?= $variables['purchasing']['merchant_id'] ?>"  name="merchant_id">
+    <input type="hidden" value="<?= $variables['purchasing']['amount'] ?>"       name="amount">
+    <input type="hidden" value="<?= $variables['purchasing']['order_id'] ?>"     name="order_id">
+    <input type="hidden" value="<?= $variables['purchasing']['currency_iso'] ?>" name="currency_iso">
+    <input type="hidden" value="<?= $variables['purchasing']['description'] ?>"  name="description">
+    <input type="hidden" value="<?= $variables['purchasing']['add_params'] ?>"   name="add_params">
+    <input type="hidden" value="<?= $variables['purchasing']['approve_url'] ?>"  name="approve_url">
+    <input type="hidden" value="<?= $variables['purchasing']['decline_url'] ?>"  name="decline_url">
+    <input type="hidden" value="<?= $variables['purchasing']['cancel_url'] ?>"   name="cancel_url">
+    <input type="hidden" value="<?= $variables['purchasing']['callback_url'] ?>" name="callback_url">
+    <input type="hidden" value="<?= $variables['purchasing']['signature'] ?>"    name="signature">
+
+    <input type="hidden" value="<?= $variables['purchasing']['client_first_name'] ?>" name="client_first_name">
+    <input type="hidden" value="<?= $variables['purchasing']['client_last_name'] ?>"  name="client_last_name">
+    <input type="hidden" value="<?= $variables['purchasing']['email'] ?>"             name="email">
+    <input type="hidden" value="<?= $variables['purchasing']['phone'] ?>"             name="phone">
+
+    <div>
+        <img src="/images/payment/concordpay.png" align="left"/>
+        После клика на кнопке "Оплатить" вы перейдете на сайт оплаты системы ConcordPay!
+    </div>
+
+    <div>
+        <input type="submit" value="<?= $this->translate('pay') ?>" class="button big"/>
+    </div>
+    <script type="text/javascript">
+        window.addEventListener('load', () => {
+            document.querySelector('#concordpay_form').submit();
+        });
+    </script>
+</form>
